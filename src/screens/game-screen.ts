@@ -23,7 +23,7 @@ import { ScreenName, UpdateScreen } from "./screen";
 const enum DropType {
   Coin,
   Key,
-  Magic
+  Magic,
 }
 
 type RoomState = {

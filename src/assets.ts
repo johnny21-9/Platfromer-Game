@@ -56,7 +56,14 @@ const enum Tile {
   Spider,
   Ghost,
   Ghost1,
-  Empty7
+  Empty7,
+
+  Eth,
+  Eth1,
+  Eth2,
+  Eth3,
+  Empty8,
+  Empty9
 }
 
 const ASSETS_TILE_SIZE = 10;
