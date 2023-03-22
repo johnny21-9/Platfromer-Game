@@ -24,6 +24,7 @@ const enum DropType {
   Coin,
   Key,
   Magic,
+  Eth
 }
 
 type RoomState = {
@@ -199,12 +200,14 @@ const createGameScreen = (game: Game): UpdateScreen => {
     });
 
     if (roomNo === 0) {
-      drops = [DropType.Key, DropType.Coin, DropType.Coin, DropType.Coin];
+      drops = [DropType.Key, DropType.Eth, DropType.Coin, DropType.Coin];
     } else {
       drops = new Array(treasures.length - 1).fill(DropType.Coin);
 
       //Portal drop chance percentage and start lvl of drop
       if (Math.random() < 0.1 && roomNo > 9) drops[0] = DropType.Magic;
+      //Eth drop chance
+      if (Math.random() < 0.5) drops[1] = DropType.Eth;
       drops.push(DropType.Key);
       shuffle(drops);
     }
@@ -439,7 +442,6 @@ const createGameScreen = (game: Game): UpdateScreen => {
     // loot
     treasures.forEach((chest) => {
       if (chest.isOff() && hitTestRectangle(player, chest)) {
-        hud.setCoinsCount(++coins);
         playSound(Sound.Coin);
 
         const oldChestHeight = chest.height;
@@ -451,6 +453,7 @@ const createGameScreen = (game: Game): UpdateScreen => {
         switch (drop) {
           case DropType.Coin:
             // TODO: check pos
+            hud.setCoinsCount(++coins);
             loot = createMovieClip([Tile.Coin, Tile.Coin1, Tile.Coin2, Tile.Coin3], Color.Gold, true);
             break;
           case DropType.Key:
@@ -458,6 +461,10 @@ const createGameScreen = (game: Game): UpdateScreen => {
               borderSize
             });
             break;
+          case DropType.Eth:
+            loot = createMovieClip([Tile.Eth, Tile.Eth1, Tile.Eth2, Tile.Eth3], Color.Gold, true);
+              hud.setCoinsCount(coins+10);
+          break;
           case DropType.Magic:
             loot = createColoredSprite(Tile.Hat, Color.Blue, {
               borderSize
