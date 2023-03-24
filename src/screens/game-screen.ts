@@ -207,7 +207,7 @@ const createGameScreen = (game: Game): UpdateScreen => {
       //Portal drop chance percentage and start lvl of drop
       if (Math.random() < 0.1 && roomNo > 9) drops[0] = DropType.Magic;
       //Eth drop chance
-      if (Math.random() < 0.5) drops[1] = DropType.Eth;
+      if (Math.random() < 0.9) drops[1] = DropType.Eth;
       drops.push(DropType.Key);
       shuffle(drops);
     }
@@ -463,7 +463,7 @@ const createGameScreen = (game: Game): UpdateScreen => {
             break;
           case DropType.Eth:
             loot = createMovieClip([Tile.Eth, Tile.Eth1, Tile.Eth2, Tile.Eth3], Color.Gold, true);
-              hud.setCoinsCount(coins+10);
+              hud.setCoinsCount(coins+=10);
           break;
           case DropType.Magic:
             loot = createColoredSprite(Tile.Hat, Color.Blue, {

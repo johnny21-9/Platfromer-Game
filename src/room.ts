@@ -80,11 +80,16 @@ const generateRoom = ({ widthInTiles, heightInTiles, roomNo, numChests = 5 }: Le
     loc.item = type;
     return loc;
   };
-  const levelThreshold = 8;
-  const maxGroundEnemies = Math.floor(roomNo / levelThreshold) + 1;
-  const maxFlyingEnemies = Math.floor(roomNo / levelThreshold);
-  const groundEnemiesLimit = Math.round(random.nextDouble() * maxGroundEnemies);
-  const flyingEnemiesLimit = Math.round(random.nextDouble() * maxFlyingEnemies);
+  // const levelThreshold = 3
+  const maxGroundEnemies = Math.ceil(roomNo / 2);
+  const maxFlyingEnemies = Math.ceil(roomNo / 2);
+  const minGroundEnemies = Math.ceil(roomNo / 6);
+  const minFlyingEnemies = Math.ceil(roomNo / 6);
+
+  const groundEnemiesLimit = Math.floor(Math.random() * (maxGroundEnemies - minGroundEnemies + 1)) + minGroundEnemies;
+  const flyingEnemiesLimit = Math.floor(Math.random() * (maxFlyingEnemies - minFlyingEnemies + 1)) + minFlyingEnemies;
+  // const groundEnemiesLimit = Math.round(random.nextDouble() * maxGroundEnemies);
+  // const flyingEnemiesLimit = Math.round(random.nextDouble() * maxFlyingEnemies);
   const busyCells: Array<Cell> = [];
 
   let i: number;
