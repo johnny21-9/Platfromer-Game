@@ -303,8 +303,8 @@ const createGameScreen = (game: Game): UpdateScreen => {
     () => stage.removeChild(blank)
   );
 
-  const keyR = bindKey(82);
-  keyR.release = resetLevel;
+  // const keyR = bindKey(82);
+  // keyR.release = resetLevel;
 
   return (dt: number) => {
     if (inTransition) return;
