@@ -144,7 +144,7 @@ const initRenderer = (targetCanvas: HTMLCanvasElement) => {
   let i: number;
   let targetScale: number;
 
-  canvas.style.cssText = "display:block;margin:0 auto;height:100%;";
+  canvas.style.cssText = "display:block;margin:0 auto;height:75%;";
   canvas.width = targetCanvas.clientWidth;
   canvas.height = targetCanvas.clientHeight;
 

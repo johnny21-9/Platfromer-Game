@@ -462,7 +462,7 @@ const createGameScreen = (game: Game): UpdateScreen => {
             });
             break;
           case DropType.Eth:
-            loot = createMovieClip([Tile.Eth, Tile.Eth1, Tile.Eth2, Tile.Eth3], Color.Gold, true);
+            loot = createMovieClip([Tile.Eth, Tile.Eth1, Tile.Eth2, Tile.Eth3], Color.BlueBright, true);
               hud.setCoinsCount(coins+=10);
           break;
           case DropType.Magic:
