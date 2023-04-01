@@ -205,7 +205,7 @@ const createGameScreen = (game: Game): UpdateScreen => {
       drops = new Array(treasures.length - 1).fill(DropType.Coin);
 
       //Portal drop chance percentage and start lvl of drop
-      if (Math.random() < 0.1 && roomNo > 9) drops[0] = DropType.Magic;
+      if (Math.random() < 1 && roomNo > 1) drops[0] = DropType.Magic;
       //Eth drop chance
       if (Math.random() < 0.9) drops[1] = DropType.Eth;
       drops.push(DropType.Key);

@@ -39,7 +39,7 @@ const createGame = (canvas: HTMLCanvasElement): Game => {
       let score: number, color: string;
       switch (name) {
         case ScreenName.Start:
-          updateScreen = createStartScreen(game);
+          updateScreen = createGameScreen(game);
           break;
         case ScreenName.Game:
           updateScreen = createGameScreen(game);
